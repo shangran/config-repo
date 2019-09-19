@@ -50,3 +50,4 @@ cloud:
 logging:
    level:
       com.newyetai.alita.dict.service: DEBUG
+      spring: DEBUG
