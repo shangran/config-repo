@@ -1,0 +1,52 @@
+server:
+   port: 8081
+spring:
+   application:
+      name: alita
+   datasource:
+      url: jdbc:mysql://localhost:3306/alita?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&allowMultiQueries=true
+      username: root
+      password: 123456
+      driverClassName: com.mysql.cj.jdbc.Driver
+      druid:
+         stat-view-servlet:
+            login-username: admin
+            login-password: 123456
+swagger:
+   enable: true #是否开启swagger文档，生产环境关闭
+security:
+   anonymous: /**,/test/**,/druid/**,/login.html #匿名访问的url,多个用逗号分隔
+   ignoring: /static/**,/images/** #忽略的资源,直接跳过spring security权限校验,一般是用做静态资源，多个用逗号分隔
+   loginPage: /#/login #自定义登录页面
+   loginProcessingUrl: /login #自定义登录请求路径
+mybatis:
+   mapperLocations: classpath*:com/newyetai/alita/**/mapper/*Mapper.xml # 配置文件位置 classpath后面要加*，不然后面通配符不管用
+   configuration:
+      map-underscore-to-camel-case: true # 开启驼峰命名自动映射
+mapper:
+   mappers: com.newyetai.alita.framework.mybatis.MyMapper #mapper 多个接口时用逗号隔开
+   not-empty: false
+   identity: MYSQL
+pagehelper:
+   helperDialect: mysql #指定数据库类型
+   reasonable: true #分页合理化参数
+alita:
+   upload-dir: D:/upload
+sms:
+   domain: dysmsapi.aliyuncs.com
+   accessKeyId: 
+   accessSecret: 
+   regionId: default
+   version: 2017-05-25
+   templatePersonVerify: 
+   signName:
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8761/eureka/
+cloud:
+   leaf-server: leaf-server
+
+logging:
+   level:
+      com.newyetai.alita.dict.service: DEBUG
