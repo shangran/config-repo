@@ -1,9 +1,3 @@
-# 覆盖配置
-spring:
-   cloud:
-      config:
-         allowOverride: true
-         overrideNone: true
 server:
    port: 8081
 spring:
@@ -18,6 +12,10 @@ spring:
          stat-view-servlet:
             login-username: admin
             login-password: 123456
+   cloud:
+      config:
+         allowOverride: true # 覆盖配置
+         overrideNone: true
 swagger:
    enable: true #是否开启swagger文档，生产环境关闭
 security:
@@ -56,4 +54,4 @@ cloud:
 logging:
    level:
       com.newyetai.alita.dict.service: DEBUG
-      org.springframework: DEBUG
+      #org.springframework: DEBUG
