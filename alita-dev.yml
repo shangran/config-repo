@@ -1,3 +1,9 @@
+# 覆盖配置
+spring:
+  cloud:
+    config:
+      allowOverride: true
+      overrideNone: true
 server:
    port: 8081
 spring:
