@@ -47,7 +47,7 @@ sms:
 eureka:
    client:
       serviceUrl:
-         defaultZone: http://localhost:8761/eureka/
+         defaultZone: http://alita-server:8082/eureka/
 cloud:
    leaf-server: leaf-server
 
